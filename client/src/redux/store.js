@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware } from "redux"; //Redux설치/셋팅
 import { composeWithDevTools } from "@redux-devtools/extension";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";

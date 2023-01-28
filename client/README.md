@@ -33,6 +33,7 @@
 
 4. 리덕스 세팅
 
+- 리덕스 라이브러리 설치
 - index.js에서 Provider 임포트
 - Provider은 store를 넣어주기 위해 존재 하는것. 때문에 store props를 항상 가지고 있다.
 
@@ -49,6 +50,15 @@
 
 ### `npm install redux react-redux`
 
+**Redux설치/셋팅 방법**
+
+- state를 마음대로 보관가능
+
+```javascript
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+```
+
 ### `npm install redux-thunk`
 
 API를 사용할 리덕스 미들웨어인 redux-thunk 설치
@@ -61,7 +71,31 @@ redux-devtools 를 통해서 리덕스 state을 확인할수 있다.
 
 ### `npm install axios`
 
+## `express`와 `http-proxy-middleware` 미들웨어를 이용하여 proxy 설정하는 방법
+
+Reactapp의 src폴더에 setProxy.js 파일을 생성한 뒤에 'http-proxy-middleware'모듈을 이용하여 프록시를 설정
+
+### `npm i http-proxy-middleware --save`
+
+## 리액트 프로젝트 빌드
+
+리액트는 개발 끝나면 build를 해야 쓸수 있음. bulid를 해야 html파일이 나옴
+
+### `npm run build`
+
 ## 환경변수
 
 - .env : 파일 내부에 공백 넣지 말것
 - 리액트 사용시 API KEY 앞에 REACT_APP 붙여줘야함
+
+# 서버
+
+**/server.js**
+
+```javascript
+app.get("/", function (요청, 응답) {
+  응답.sendFile(path.join(__dirname, "리액트로 만든 html파일 경로"));
+});
+```
+
+### `npm install cors`
