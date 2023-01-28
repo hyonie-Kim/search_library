@@ -59,6 +59,8 @@ redux-devtools 를 통해서 리덕스 state을 확인할수 있다.
 
 - `yarn add @redux-devtools/extension`
 
+### `npm install axios`
+
 ## 환경변수
 
 - .env : 파일 내부에 공백 넣지 말것
