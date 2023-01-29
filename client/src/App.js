@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Navigation from "./components/Navigation";
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
+import Books from "./pages/Books";
 
 // 프론트에서 서버에 데이터를 요청 하려면 서버 주소 와 HTTP 메소드만 있으면됨
 
@@ -38,12 +39,18 @@ function App() {
   //     });
   // };
   // console.log(getData());
-
+  const getCurrent = () => {
+    console.log("getCurrent");
+  };
+  useEffect(() => {
+    getCurrent();
+  }, []);
   return (
     <div className="App">
       <Navigation />
       <Routes>
         <Route path="/" element={<LibraryCatalog />} />
+        <Route path="/books" element={<Books />} />
         <Route path="/login" element={<Login />} />
         <Route path="/Library/:id" element={<BookDetail />} />
       </Routes>

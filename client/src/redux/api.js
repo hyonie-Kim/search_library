@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://www.aladin.co.kr/ttb/api/ItemList.aspx",
+  // baseURL: "http://www.aladin.co.kr/ttb/api",
+  baseURL: "/api",
   //   timeout: 1000,
   headers: { "Content-type": "application/json" },
 });

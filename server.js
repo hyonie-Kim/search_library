@@ -11,18 +11,18 @@ const app = express();
 // 그럼 build폴더 안의 css js img 파일들도 잘 사용할 수 있다.
 // app.use(express.static(path.join(__dirname, "public")));
 
-// cors 허용
-app.use(cors());
-// app.use(cors({ origin: true, credentials: true }));
-// let corsOptions = {
-//   origin: "http://www.aladin.co.kr/",
-//   credentials: true,
-// };
-// app.use(cors(corsOptions));
-
 // express bodyParsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// cors 허용
+// app.use(cors());
+// app.use(cors({ origin: true, credentials: true }));
+let corsOptions = {
+  origin: "http://www.aladin.co.kr/ttb/api",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 // app.get("/", (req, res) => {
 //   res.sendFile(path.join(__dirname, "./public/index.html"));
@@ -36,24 +36,37 @@ app.use(express.urlencoded({ extended: true }));
 //     "http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttblovely2012530900001&QueryType=ItemNewAll&MaxResults=10&start=1&SearchTarget=Book&output=xml&Version=20131101",
 //   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 // };
-let id = 2;
-const todoList = [{ id: 1, text: "할일1", done: false }];
-// app.get("/", (req, res) => {
-//   res.send("안녕!!");
-// });
-app.get("/", (req, res) => {
-  res.json(todoList);
-});
 
-app.post("/", (req, res) => {
-  const { text, done } = req.body;
-  todoList.push({
-    id: id++,
-    text,
-    done,
-  });
-  return res.send("성공");
+// 중지
+
+// let id = 2;
+// const todoList = [{ id: 1, text: "할일1", done: false }];
+// // app.get("/", (req, res) => {
+// //   res.send("안녕!!");
+// // });
+// app.get("/", (req, res) => {
+//   res.json(todoList);
+// });
+
+// app.post("/", (req, res) => {
+//   const { text, done } = req.body;
+//   todoList.push({
+//     id: id++,
+//     text,
+//     done,
+//   });
+//   return res.send("성공");
+// });
+
+// 방법1
+app.get("/", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "http://www.aladin.co.kr/ttb/api");
 });
+// 방법2
+// app.get("/", (req, res) => {
+//   res.json(corsOptions);
+// });
+
 app.listen(port, () => {
   console.log(`Server On : http://localhost:${port}`);
 });
