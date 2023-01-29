@@ -98,4 +98,10 @@ app.get("/", function (요청, 응답) {
 });
 ```
 
+# CORS
+
+- 서버에서 cors 정책 해결 이슈
+  Client: localhost:3000(react 개발서버), Server: localhost:4000
+  출처가 다르기 때문에 생기는 에러이다. Origin이 다르면 데이터를 꺼내갈수 없다는 정책
+
 ### `npm install cors`
