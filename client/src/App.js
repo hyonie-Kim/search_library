@@ -1,7 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
-import BookDetail from "./pages/BookDetail";
+import BookDetail from "./components/BookDetail";
 import LibraryCatalog from "./pages/LibraryCatalog";
 import Login from "./pages/Login";
 import Navigation from "./components/Navigation";
