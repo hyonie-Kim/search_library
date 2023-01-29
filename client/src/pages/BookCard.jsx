@@ -1,14 +1,13 @@
 import React from "react";
 
-export default function BookCard() {
+export default function BookCard({ result }) {
+  console.log("result???", result);
   return (
     <div>
-      <img
-        width={150}
-        src="https://image.aladin.co.kr/product/30373/51/cover500/k472839856_1.jpg"
-      ></img>
-      <h3>책이름</h3>
-      <div>작가이름</div>
+      <img width={130} src={result.cover}></img>
+      {/* <div>{item.cover}</div>
+      <h6>{item.title}</h6>
+      <div>{item.author}</div> */}
     </div>
   );
 }

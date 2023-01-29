@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"; //액션을 콜하려면
 import { useEffect } from "react";
 import BookCard from "./BookCard";
 import { Col, Container, Row } from "react-bootstrap";
+import BooksSlide from "./BooksSlide";
 
 export default function LibraryCatalog() {
   const dispatch = useDispatch();
@@ -17,22 +18,14 @@ export default function LibraryCatalog() {
   }, []);
   return (
     <div>
-      {/* <Container>
-        <Row>
-          <Col lg={3}>
-            <BookCard />
-          </Col>
-          <Col lg={3}>
-            <BookCard />
-          </Col>
-          <Col lg={3}>
-            <BookCard />
-          </Col>
-          <Col lg={3}>
-            <BookCard />
-          </Col>
-        </Row>
-      </Container> */}
+      {/* {itemList.item && <BookCard book={itemList.item[0]} />} */}
+
+      <h1>신간 리스트</h1>
+      {itemList && <BooksSlide book={itemList} />}
+      <h1>베스트 셀러</h1>
+      {/* <BooksSlide /> */}
+      <h1>주목할 만한 리스트</h1>
+      {/* <BooksSlide /> */}
     </div>
   );
 }
