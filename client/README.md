@@ -141,3 +141,4 @@ app.get("/", function (요청, 응답) {
 9. 디스패치를 가지고 액션을 호출을 해줄텐데 여기서 바로 액션객체를 던지는것이 아니라 `dispatch(bookAction.getBooks()` bookAction에 있는 getBooks함수를 부른다. 그러면 해당 getBooks 미들웨어를 거쳐서 간다.
 10. 디스패치가 보낸 액션에 따라서 리듀서를 만들어주면 된다.
 11. useState 대신에 useSelector를 사용해서 값을 가져와야한다.
+12. 스토어에도 반드시 리듀서를 설정해둔다.
