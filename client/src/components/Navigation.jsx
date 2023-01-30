@@ -12,6 +12,7 @@ import {
   FormControl,
 } from "react-bootstrap";
 
+import { Input } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Navigation() {
@@ -19,6 +20,7 @@ export default function Navigation() {
   const goToLogin = () => {
     navigate("/login");
   };
+  const { Search } = Input;
   return (
     <>
       {/* <div>
@@ -105,7 +107,7 @@ export default function Navigation() {
                 </NavDropdown.Item>
               </NavDropdown> */}
             </Nav>
-            <Form className="d-flex">
+            {/* <Form className="d-flex">
               <Form.Control
                 type="search"
                 placeholder="Search"
@@ -113,7 +115,12 @@ export default function Navigation() {
                 aria-label="Search"
               />
               <Button variant="outline-success">Search</Button>
-            </Form>
+            </Form> */}
+            <Search
+              placeholder="input search text"
+              onSearch={(value) => console.log(value)}
+              style={{ width: 200 }}
+            />
           </Navbar.Collapse>
         </Container>
       </Navbar>

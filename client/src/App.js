@@ -1,5 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "antd/dist/reset.css";
+import "antd-button-color/dist/css/style.css";
 import { Routes, Route } from "react-router-dom";
 import BookDetail from "./components/BookDetail";
 import LibraryCatalog from "./pages/LibraryCatalog";
@@ -8,6 +10,7 @@ import Navigation from "./components/Navigation";
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import Books from "./pages/Books";
+import SignUp from "./pages/SignUp";
 
 // 프론트에서 서버에 데이터를 요청 하려면 서버 주소 와 HTTP 메소드만 있으면됨
 
@@ -54,6 +57,7 @@ function App() {
         <Route path="/books" element={<Books />} />
         <Route path="/login" element={<Login />} />
         <Route path="/Library/:id" element={<BookDetail />} />
+        <Route path="/register" element={<SignUp />} />
       </Routes>
     </div>
   );
