@@ -19,7 +19,7 @@ module.exports = (app) => {
       target: "http://www.aladin.co.kr/ttb/api",
       changeOrigin: true,
       pathRewrite: {
-        "^/api": "",
+        "^/api": "", //URL ^/api ->공백 변경
       },
     })
   );

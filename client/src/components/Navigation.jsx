@@ -12,9 +12,13 @@ import {
   FormControl,
 } from "react-bootstrap";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navigation() {
+  const navigate = useNavigate();
+  const goToLogin = () => {
+    navigate("/login");
+  };
   return (
     <>
       {/* <div>
@@ -79,8 +83,10 @@ export default function Navigation() {
               <Nav.Link href="/books">Books</Nav.Link>
             </Nav>
             <Nav>
-              {/* <Nav.Link href="#">Link</Nav.Link> */}
-              <NavDropdown
+              <Nav.Link onClick={goToLogin}>
+                <FontAwesomeIcon icon={faUser} /> {""} 로그인
+              </Nav.Link>
+              {/* <NavDropdown
                 title={
                   <span>
                     <FontAwesomeIcon icon={faUser} />
@@ -97,7 +103,7 @@ export default function Navigation() {
                 <NavDropdown.Item href="#action5">
                   Something else here
                 </NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
             </Nav>
             <Form className="d-flex">
               <Form.Control

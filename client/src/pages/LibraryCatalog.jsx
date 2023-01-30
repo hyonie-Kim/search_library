@@ -31,14 +31,20 @@ export default function LibraryCatalog() {
   }
   return (
     <div>
-      {/* {itemList.item && <BookCard book={itemList.item[0]} />} */}
+      <Container>
+        {/* {itemList.item && <BookCard book={itemList.item[0]} />} */}
 
-      {/* <h1>신간 리스트</h1>
+        {/* <h1>신간 리스트</h1>
       <BooksSlide book={itemList} /> */}
-      <h2>베스트 셀러</h2>
-      <BooksSlide book={itemNewSpecial} />
-      <h2>주목할 만한 리스트</h2>
-      <BooksSlide book={bestSeller} />
+        <Row>
+          <h2>베스트 셀러</h2>
+          <BooksSlide book={itemNewSpecial} />
+        </Row>
+        <Row>
+          <h2>주목할 만한 리스트</h2>
+          <BooksSlide book={bestSeller} />
+        </Row>
+      </Container>
     </div>
   );
 }
