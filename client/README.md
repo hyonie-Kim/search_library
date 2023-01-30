@@ -105,3 +105,39 @@ app.get("/", function (요청, 응답) {
   출처가 다르기 때문에 생기는 에러이다. Origin이 다르면 데이터를 꺼내갈수 없다는 정책
 
 ### `npm install cors`
+
+# 리덕스 사용법 정리하기
+
+## Store.js 기본 세팅
+
+1. redux/store.js 만들기
+2. store를 만들어 내는 함수 인 createStore 를 redux로 부터 가져온다. `import {createStore} form "redux"`
+3. 그리고 store를 변수를 만든다. createStore 매개변수로 reducer가 들어간다.
+4. reducer를 아직 안만들었기 때문에 redux폴더에서 reducers 폴더 만들기.
+5. 책 API를 가져오는 reducer를 만든다. reducer/bookReducer.js
+6. 관리해야하는 state가 무엇이 있는지 작성한다. 먼저 `let initialState={}`객체를 만든다.
+7. 그리고 리듀서는 함수이다. 리듀서는 파라미터 2개를 가지고 있다. `function bookReducer(state, action){}`
+8. state는 초기값으로 항상 initialState를 넣어야한다.
+9. 리듀서를 항상 export default로 bookReducer 사용할수 있도록한다. 그러면 store에서 사용할수 있다.
+10. 스토어에 리듀서를 연결하고 스토어를 index.js에서 import한다
+
+## 미들웨어 세팅
+
+1. applyMiddleware를 가져와서 `createStore()` 두번째 인자로 리듀서 다음에 넣어주면 된다.
+2. thunk도 같이 import하고 가져온다. thunk는 'redux-thunk'로 부터 옴.
+3. 즉 미들웨어(applyMiddleware)를 적용시켜주는데 그것은 thunk이다.
+4. 미들웨어도 사용할 준비 완료!
+
+## 미들웨어 함수 만들기 - action creator
+
+1. redux폴더에서 actions폴더를 만든다.
+2. actions/bookAction.js파일을 만든다. 해당파일에 미들웨어 함수를 만든다.
+3. 첫번째로 만들 함수는 getBooks 함수를 미들웨어로 만든다. 미들웨어 함수는 함수를 리턴한다.
+4. 미들웨어 함수에 return값에는 2개의 매개변수가 있다. 그것은 dispatch와 getState
+5. 객체에 함수를 담아서 반환한다. 객체 안에는 해당 함수가 담겨 있다.
+6. 왜냐하면 해당 함수가 여러개가 될거라서 객체에 담아서 리턴을 한다.
+7. LibraryCatalog에서 bookAction을 import한다.
+8. 해당 액션을 콜하기 위해서는 디스패치가 필요하다. 때문에 디스패치도 임포트!
+9. 디스패치를 가지고 액션을 호출을 해줄텐데 여기서 바로 액션객체를 던지는것이 아니라 `dispatch(bookAction.getBooks()` bookAction에 있는 getBooks함수를 부른다. 그러면 해당 getBooks 미들웨어를 거쳐서 간다.
+10. 디스패치가 보낸 액션에 따라서 리듀서를 만들어주면 된다.
+11. useState 대신에 useSelector를 사용해서 값을 가져와야한다.

@@ -13,6 +13,7 @@ import Books from "./pages/Books";
 
 // const SERVER_URL = "http://localhost:5000/";
 function App() {
+  const [authenticate, setAutjenticate] = useState(false); // true이면 로그인 false이면 로그인아님
   const [serverData, setServerData] = useState("");
 
   // const getData = async () => {
