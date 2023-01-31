@@ -18,10 +18,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // cors 허용
-// app.use(cors());
+app.use(cors());
 // app.use(cors({ origin: true, credentials: true }));
 let corsOptions = {
-  origin: "http://www.aladin.co.kr/ttb/api",
+  origin: "http://localhost:3000",
   credentials: true,
 };
 app.use(cors(corsOptions));
@@ -61,14 +61,15 @@ app.use(cors(corsOptions));
 // });
 
 // 방법1
-app.get("/", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://www.aladin.co.kr/ttb/api");
+app.get("/api", async (req, res) => {
+  res.send("연결");
 });
+
 // 방법2
 // app.get("/", (req, res) => {
 //   res.json(corsOptions);
 // });
 
 app.listen(port, () => {
-  console.log(`Server On : http://localhost:${port}`);
+  console.log(`백엔드 서버 작동중: http://localhost:${port}`);
 });

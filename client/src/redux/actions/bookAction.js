@@ -1,7 +1,11 @@
 import api from "../api";
+import server from "../server";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 function getBooks() {
+  server.get("api").then((res) => {
+    console.log("server!!!! ", res.data);
+  });
   return async (dispatch) => {
     try {
       dispatch({ type: "GET_BOOKS_REQUEST" });

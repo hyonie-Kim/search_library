@@ -1,5 +1,3 @@
-const dotenv = require("dotenv");
-dotenv.config({ path: "../.env" });
 const env = process.env;
 
 const development = {
