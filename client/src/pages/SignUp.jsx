@@ -1,16 +1,28 @@
 import React from "react";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Form, Input } from "antd";
+import axios from "axios";
 
 export default function SignUp() {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
+  function login(onFinish) {
+    axios({
+      method: "post",
+      url: "http://localhost:5000",
+      data: onFinish,
+    }).then((res) => {
+      console.log(res);
+      return res.data;
+    });
+  }
+
   return (
     <div id="components-form-demo-normal-register">
       <Form
-        name="normal_login"
-        className="login-form"
+        name="normal_signup"
+        className="signup-form"
         initialValues={{
           remember: true,
         }}
@@ -76,6 +88,7 @@ export default function SignUp() {
             type="primary"
             htmlType="submit"
             className="login-form-button"
+            onClick={() => login()}
           >
             register now!
           </Button>

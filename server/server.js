@@ -33,13 +33,6 @@ app.use(cors(corsOptions));
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "./public/index.html"));
 // });
-// var corsOptions = {
-//   origin:
-//     "http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttblovely2012530900001&QueryType=ItemNewAll&MaxResults=10&start=1&SearchTarget=Book&output=xml&Version=20131101",
-//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-// };
-
-// 중지
 
 // let id = 2;
 // const todoList = [{ id: 1, text: "할일1", done: false }];

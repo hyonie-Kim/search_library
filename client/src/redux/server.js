@@ -1,9 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  // baseURL: "http://www.aladin.co.kr/ttb/api",
   baseURL: "http://localhost:5000",
-  //   timeout: 1000,
   headers: { "Content-type": "application/json" },
 });
 
