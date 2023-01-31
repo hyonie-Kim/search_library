@@ -21,6 +21,13 @@ export default function Navigation() {
     navigate("/login");
   };
   const { Search } = Input;
+
+  const searchOnkeyPress = (e) => {
+    if (e.key === "Enter") {
+      // 입력한 검색어를 읽어와서 URL을 바꿔준다.
+      console.log("key press", e.key);
+    }
+  };
   return (
     <>
       {/* <div>
@@ -120,6 +127,7 @@ export default function Navigation() {
               placeholder="input search text"
               onSearch={(value) => console.log(value)}
               style={{ width: 200 }}
+              // onKeyPress={(e) => searchOnkeyPress(e)}
             />
           </Navbar.Collapse>
         </Container>
