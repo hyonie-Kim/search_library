@@ -43,12 +43,13 @@ function App() {
   //     });
   // };
   // console.log(getData());
-  const getCurrent = () => {
-    console.log("getCurrent");
-  };
-  useEffect(() => {
-    getCurrent();
-  }, []);
+
+  // const getCurrent = () => {
+  //   console.log("getCurrent");
+  // };
+  // useEffect(() => {
+  //   getCurrent();
+  // }, []);
   return (
     <div className="App">
       <Navigation />
