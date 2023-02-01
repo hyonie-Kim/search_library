@@ -22,11 +22,13 @@ export default function Navigation() {
   };
   const { Search } = Input;
 
-  const searchOnkeyPress = (e) => {
-    if (e.key === "Enter") {
-      // 입력한 검색어를 읽어와서 URL을 바꿔준다.
-      console.log("key press", e.key);
-    }
+  const searchOnkeyPress = (value) => {
+    // if (e.key === "Enter") {
+    //   // 입력한 검색어를 읽어와서 URL을 바꿔준다.
+    //   console.log("key press", e.key);
+
+    // }
+    navigate(`/?p=${value}`);
   };
   return (
     <>
@@ -125,9 +127,8 @@ export default function Navigation() {
             </Form> */}
             <Search
               placeholder="input search text"
-              onSearch={(value) => console.log(value)}
+              onSearch={(value) => searchOnkeyPress(value)}
               style={{ width: 200 }}
-              // onKeyPress={(e) => searchOnkeyPress(e)}
             />
           </Navbar.Collapse>
         </Container>

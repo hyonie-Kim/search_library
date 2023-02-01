@@ -2,13 +2,17 @@ import React from "react";
 
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
+import { useNavigate } from "react-router-dom";
 // import { Container } from "react-bootstrap";
 
-export default function Login() {
+export default function Login({ setAuthenticate }) {
+  const navigate = useNavigate();
   // const [id, setId] = useState("");
   // const [password, setPassword] = useState("");
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    setAuthenticate(true);
+    navigate("/");
   };
 
   return (

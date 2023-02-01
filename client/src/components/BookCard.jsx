@@ -1,9 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function BookCard({ result }) {
   console.log("result???", result);
+  const navigate = useNavigate();
+  const showDetail = () => {
+    navigate(`/book/${result.itemId}`);
+  };
   return (
-    <div>
+    <div onClick={showDetail}>
       {/* <img width={130} src={result.cover}></img> */}
       {/* <div>{item.cover}</div>
       <h6>{item.title}</h6>

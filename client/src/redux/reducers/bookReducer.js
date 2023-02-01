@@ -2,6 +2,7 @@ let initialState = {
   itemList: {},
   itemNewSpecial: {},
   bestSeller: {},
+  itemDetail: {},
   loading: true,
 };
 
@@ -16,6 +17,7 @@ function bookReducer(state = initialState, action) {
         itemList: payload.itemList,
         itemNewSpecial: payload.itemNewSpecial,
         bestSeller: payload.bestSeller,
+        itemDetail: payload.itemDetail,
         loading: false,
       };
     case "GET_BOOKS_FAILURE":
