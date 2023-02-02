@@ -4,6 +4,7 @@ exports.connection = async (req, res) => {
   res.send("연결");
 };
 
+// 회원가입
 exports.signup = async (req, res) => {
   console.log(req.body);
 
@@ -16,6 +17,8 @@ exports.signup = async (req, res) => {
   let result = await User.create(data);
   res.send(String(result.id));
 };
+
+// 로그인
 
 // router.get("/api", async (req, res) => {
 //   res.send("연결");
