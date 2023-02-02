@@ -37,7 +37,10 @@ function App() {
           path="/book/:isbn"
           element={<PrivateRoute authenticate={authenticate} />}
         />
-        <Route path="/register" element={<SignUp />} />
+        <Route
+          path="/register"
+          element={<SignUp setAuthenticate={setAuthenticate} />}
+        />
       </Routes>
     </div>
   );

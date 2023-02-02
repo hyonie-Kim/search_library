@@ -1,5 +1,5 @@
 import React from "react";
-
+import axios from "axios";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login({ setAuthenticate }) {
   const navigate = useNavigate();
-  // const [id, setId] = useState("");
-  // const [password, setPassword] = useState("");
+
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+
     setAuthenticate(true);
     navigate("/");
   };
@@ -34,7 +34,7 @@ export default function Login({ setAuthenticate }) {
         </div>
 
         <Form.Item
-          name="username"
+          name="email"
           rules={[
             {
               required: true,
@@ -43,8 +43,9 @@ export default function Login({ setAuthenticate }) {
           ]}
         >
           <Input
-            prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="Username"
+            prefix={<LockOutlined className="site-form-item-icon" />}
+            type="email"
+            placeholder="email"
           />
         </Form.Item>
         <Form.Item

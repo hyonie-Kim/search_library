@@ -7,10 +7,11 @@ import { useSearchParams } from "react-router-dom"; //params를 읽어올것임
 import server from "../redux/server";
 import axios from "axios";
 import Title from "antd/es/skeleton/Title";
+import ClipLoader from "react-spinners/ClipLoader";
 
 export default function BookDetail() {
   const dispatch = useDispatch();
-  const { itemDetail } = useSelector((state) => state.book);
+  const { itemDetail, loading } = useSelector((state) => state.book);
 
   // const [query, setQuery] = useSearchParams();
   // let itemId = query.get("itemId");
@@ -33,18 +34,27 @@ export default function BookDetail() {
   //   let data = await response.json();
   //   console.log(data);
   // };
-
-  console.log("ddddddddddddd", itemDetail);
-
   useEffect(() => {
     dispatch(bookAction.getBooks(isbn));
     // getDetail();
   }, []);
+  if (loading) {
+    return (
+      <ClipLoader
+        color="green"
+        loading={loading}
+        size={150}
+        aria-label="Loading Spinner"
+      />
+    );
+  }
+  console.log("ddddddddddddd", itemDetail);
+
   return (
     <div>
       {isbn}
 
-      <h1>{itemDetail[0].title}</h1>
+      <h1>{itemDetail !== undefined && itemDetail[0].title}</h1>
     </div>
   );
 }

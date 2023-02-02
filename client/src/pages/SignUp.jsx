@@ -2,21 +2,61 @@ import React from "react";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Form, Input } from "antd";
 import axios from "axios";
+import server from "../redux/server";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function SignUp() {
+export default function SignUp({ setAuthenticate }) {
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const nameHandler = (e) => {
+    e.preventDefault();
+    setName(e.target.value);
+  };
+  const emailHandler = (e) => {
+    e.preventDefault();
+    setEmail(e.target.value);
+  };
+
+  const passwordHandler = (e) => {
+    e.preventDefault();
+    setPassword(e.target.value);
+  };
+
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
-  function login(onFinish) {
-    axios({
-      method: "post",
-      url: "http://localhost:5000",
-      data: onFinish,
-    }).then((res) => {
-      console.log(res);
-      return res.data;
-    });
+
+  function signup() {
+    console.log(email);
+    console.log(password);
+    let body = {
+      name: name,
+      email: email,
+      password: password,
+    };
+
+    server
+      .post("signup", body)
+      .then((res) => {
+        console.log(res);
+
+        return res.data;
+      })
+      .then(() => {
+        setAuthenticate(true);
+        navigate("/");
+      });
   }
+  // function login(onFinish) {
+  //   server.post("signup", { a: 1 }).then((res) => {
+  //     console.log(res);
+  //     return res.data;
+  //   });
+  // }
 
   return (
     <div id="components-form-demo-normal-register">
@@ -45,6 +85,8 @@ export default function SignUp() {
           ]}
         >
           <Input
+            onChange={nameHandler}
+            value={name}
             prefix={<UserOutlined className="site-form-item-icon" />}
             placeholder="Username"
           />
@@ -54,11 +96,13 @@ export default function SignUp() {
           rules={[
             {
               required: true,
-              message: "Please input your Password!",
+              message: "Please input your email!",
             },
           ]}
         >
           <Input
+            value={email}
+            onChange={emailHandler}
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="email"
             placeholder="email"
@@ -74,6 +118,8 @@ export default function SignUp() {
           ]}
         >
           <Input
+            value={password}
+            onChange={passwordHandler}
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
             placeholder="Password"
@@ -88,7 +134,7 @@ export default function SignUp() {
             type="primary"
             htmlType="submit"
             className="login-form-button"
-            onClick={() => login()}
+            onClick={() => signup()}
           >
             register now!
           </Button>
