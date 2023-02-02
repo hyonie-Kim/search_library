@@ -59,7 +59,7 @@ app.get("/api", async (req, res) => {
 });
 
 app.get("/kk", async (req, res) => {
-  let url = `http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=${API_KEY}&itemIdType=ISBN&ItemId=${itemId}&output=js&Version=20131101`;
+  let url = `http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=ttblovely2012530900001&itemIdType=ISBN&ItemId=${req.params.id}&output=js&Version=20131101`;
   await fetch(url);
   let data = await res.json();
   console.log(data);

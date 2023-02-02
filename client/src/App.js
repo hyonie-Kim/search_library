@@ -34,7 +34,7 @@ function App() {
           element={<Login setAuthenticate={setAuthenticate} />}
         />
         <Route
-          path="/book/:itemId"
+          path="/book/:isbn"
           element={<PrivateRoute authenticate={authenticate} />}
         />
         <Route path="/register" element={<SignUp />} />

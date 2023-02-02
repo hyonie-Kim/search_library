@@ -2,7 +2,7 @@ import api from "../api";
 import server from "../server";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-function getBooks(itemId) {
+function getBooks(isbn) {
   server.get("api").then((res) => {
     console.log("server!!!! ", res.data);
   });
@@ -22,7 +22,7 @@ function getBooks(itemId) {
         `ItemList.aspx?ttbkey=${API_KEY}&QueryType=Bestseller&MaxResults=10&start=1&SearchTarget=Book&output=js&Version=20131101`
       );
       const itemDetailApi = api.get(
-        `ItemLookUp.aspx?ttbkey=${API_KEY}&itemIdType=ISBN&ItemId=${itemId}&output=js&Version=20131101`
+        `ItemLookUp.aspx?ttbkey=${API_KEY}&itemIdType=ISBN&ItemId=${isbn}&output=js&Version=20131101`
       );
 
       let [itemList, itemNewSpecial, bestSeller, itemDetail] =
@@ -42,7 +42,7 @@ function getBooks(itemId) {
           itemList: itemList.data,
           itemNewSpecial: itemNewSpecial.data,
           bestSeller: bestSeller.data,
-          itemDetail: itemDetail.data.result,
+          itemDetail: itemDetail.data.item,
         },
       });
     } catch (err) {

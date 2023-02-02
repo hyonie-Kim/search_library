@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom"; //url 숫자읽음
 import { useSearchParams } from "react-router-dom"; //params를 읽어올것임
 import server from "../redux/server";
 import axios from "axios";
+import Title from "antd/es/skeleton/Title";
 
 export default function BookDetail() {
   const dispatch = useDispatch();
@@ -14,17 +15,16 @@ export default function BookDetail() {
   // const [query, setQuery] = useSearchParams();
   // let itemId = query.get("itemId");
 
-  let { itemId } = useParams();
-  console.log("????????????????", itemId);
+  let { isbn } = useParams();
 
   // const getDetail = (itemId) => {
   //   // server.post("kkk").then((res) => {
   //   //   res.data("dddd", itemId);
   //   // });
-  //   // server.get("/kkk");
-  //   // axios.then((res) => {
-  //   //   console.log(res);
-  //   // });
+  //   server.get(`/kkk?id=${itemId}`);
+  //   axios.then((res) => {
+  //     console.log(res);
+  //   });
   // };
   // const getBooksDetail = async () => {
   //   let url = `http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=ttblovely2012530900001&itemIdType=ISBN&ItemId=${itemId}&output=js&Version=20131101&
@@ -37,8 +37,14 @@ export default function BookDetail() {
   console.log("ddddddddddddd", itemDetail);
 
   useEffect(() => {
-    dispatch(bookAction.getBooks(itemId));
+    dispatch(bookAction.getBooks(isbn));
     // getDetail();
   }, []);
-  return <div>{itemId}</div>;
+  return (
+    <div>
+      {isbn}
+
+      <h1>{itemDetail[0].title}</h1>
+    </div>
+  );
 }

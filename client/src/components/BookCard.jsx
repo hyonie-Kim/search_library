@@ -5,7 +5,7 @@ export default function BookCard({ result }) {
   console.log("result???", result);
   const navigate = useNavigate();
   const showDetail = () => {
-    navigate(`/book/${result.itemId}`);
+    navigate(`/book/${result.isbn}`);
   };
   return (
     <div onClick={showDetail}>
