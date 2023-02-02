@@ -6,6 +6,7 @@ function getBooks(itemId) {
   server.get("api").then((res) => {
     console.log("server!!!! ", res.data);
   });
+
   return async (dispatch) => {
     try {
       dispatch({ type: "GET_BOOKS_REQUEST" });
@@ -41,7 +42,7 @@ function getBooks(itemId) {
           itemList: itemList.data,
           itemNewSpecial: itemNewSpecial.data,
           bestSeller: bestSeller.data,
-          itemDetail: itemDetail.data,
+          itemDetail: itemDetail.data.result,
         },
       });
     } catch (err) {

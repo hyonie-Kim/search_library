@@ -58,6 +58,17 @@ app.get("/api", async (req, res) => {
   res.send("연결");
 });
 
+app.get("/kk", async (req, res) => {
+  let url = `http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=${API_KEY}&itemIdType=ISBN&ItemId=${itemId}&output=js&Version=20131101`;
+  await fetch(url);
+  let data = await res.json();
+  console.log(data);
+  res.send("dddddddddddd");
+});
+
+app.get("/kkk", async (req, res) => {
+  res.send("보냇ㅇㅇㅇ");
+});
 // 방법2
 // app.get("/", (req, res) => {
 //   res.json(corsOptions);
