@@ -43,7 +43,7 @@ export default function Login({ setAuthenticate }) {
           ]}
         >
           <Input
-            prefix={<LockOutlined className="site-form-item-icon" />}
+            prefix={<UserOutlined className="site-form-item-icon" />}
             type="email"
             placeholder="email"
           />
