@@ -8,15 +8,17 @@ export default function BookCard({ result }) {
     navigate(`/book/${result.isbn}`);
   };
   return (
-    <div onClick={showDetail}>
+    <div className="card" onClick={showDetail}>
+      {/* <div className="card_cover"> */}
       {/* <img width={130} src={result.cover}></img> */}
       {/* <div>{item.cover}</div>
       <h6>{item.title}</h6>
       <div>{item.author}</div> */}
-      <img className="card" src={result.cover}></img>
-      <div>
+      <img className="card_cover" src={result.cover}></img>
+      {/* <div>
         <h5>{result.title}</h5>
-      </div>
+      </div> */}
+      {/* </div> */}
     </div>
   );
 }
