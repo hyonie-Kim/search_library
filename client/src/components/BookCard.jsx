@@ -14,10 +14,10 @@ export default function BookCard({ result }) {
       {/* <div>{item.cover}</div>
       <h6>{item.title}</h6>
       <div>{item.author}</div> */}
-      <img className="card_cover" src={result.cover}></img>
-      {/* <div>
-        <h5>{result.title}</h5>
-      </div> */}
+      <img src={result.cover}></img>
+      <div className="bottom">
+        <h3 className="title">{result.title}</h3>
+      </div>
       {/* </div> */}
     </div>
   );

@@ -25,21 +25,21 @@ const responsive = {
 export default function BooksSlide({ book }) {
   console.log("슬라이드 아이템!", book);
   return (
-    <div>
-      <Carousel responsive={responsive}>
-        {book.item.map((result, index) => (
-          <BookCard result={result} key={index} />
-        ))}
+    <div className="slideContainer">
+      {/* <Carousel responsive={responsive}> */}
+      {book.item.map((result, index) => (
+        <BookCard result={result} key={index} />
+      ))}
 
-        {/* <BookCard />
+      {/* <BookCard />
         <BookCard />
         <BookCard />
         <BookCard />
         <BookCard /> */}
-        {/* <div>Item 2</div>
+      {/* <div>Item 2</div>
         <div>Item 3</div>
         <div>Item 4</div> */}
-      </Carousel>
+      {/* </Carousel> */}
     </div>
   );
 }

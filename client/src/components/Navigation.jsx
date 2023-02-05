@@ -96,8 +96,8 @@ export default function Navigation() {
       </Navbar> */}
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-          <a class="navbar-brand" href="#">
-            Navbar
+          <a class="navbar-brand" href="/">
+            <h2>LIBRARY</h2>
           </a>
           <button
             class="navbar-toggler"
@@ -113,7 +113,7 @@ export default function Navigation() {
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link active" href="/">
                   Home
                   <span class="visually-hidden">(current)</span>
                 </a>
@@ -133,33 +133,6 @@ export default function Navigation() {
                   About
                 </a>
               </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  href="#"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">
-                    Action
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    Another action
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">
-                    Separated link
-                  </a>
-                </div>
-              </li>
             </ul>
             <form class="d-flex">
               <input
@@ -171,6 +144,14 @@ export default function Navigation() {
                 Search
               </button>
             </form>
+            <ul className="navbar-nav ml-auto">
+              <li class="nav-item" onClick={goToLogin}>
+                <a class="nav-link" href="#">
+                  <FontAwesomeIcon icon={faUser} />
+                  {""} login
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
