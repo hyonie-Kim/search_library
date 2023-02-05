@@ -22,15 +22,20 @@ function getBooks(isbn) {
         `ItemList.aspx?ttbkey=${API_KEY}&QueryType=Bestseller&MaxResults=10&start=1&SearchTarget=Book&output=js&Version=20131101`
       );
       const itemDetailApi = api.get(
-        `ItemLookUp.aspx?ttbkey=${API_KEY}&itemIdType=ISBN&ItemId=${isbn}&output=js&Version=20131101`
+        `ItemLookUp.aspx?ttbkey=${API_KEY}&itemIdType=ISBN&Cover=Big&ItemId=${isbn}&output=js&Version=20131101`
+      );
+      const bookSearchApi = api.get(
+        `ItemSearch.aspx?ttbkey=${API_KEY}&Query=aladdin&QueryType=Title&MaxResults=10&start=1&SearchTarget=B
+        ook&output=js&Version=20131101&OptResult=Toc,Story,fulldescription`
       );
 
-      let [itemList, itemNewSpecial, bestSeller, itemDetail] =
+      let [itemList, itemNewSpecial, bestSeller, itemDetail, bookSearch] =
         await Promise.all([
           itemListApi,
           itemNewSpecialApi,
           bestSellerApi,
           itemDetailApi,
+          bookSearchApi,
         ]);
       // console.log(itemList);
       // console.log(itemNewSpecial);
@@ -43,6 +48,7 @@ function getBooks(isbn) {
           itemNewSpecial: itemNewSpecial.data,
           bestSeller: bestSeller.data,
           itemDetail: itemDetail.data.item,
+          bookSearch: bookSearch.data,
         },
       });
     } catch (err) {

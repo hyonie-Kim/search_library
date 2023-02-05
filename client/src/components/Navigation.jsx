@@ -31,6 +31,10 @@ export default function Navigation() {
     // }
     navigate(`/?p=${value}`);
   };
+  const search = (event) => {
+    event.preventDefault();
+    console.log("search issue");
+  };
   return (
     <>
       {/* <Navbar bg="light" expand="lg">
@@ -94,13 +98,13 @@ export default function Navigation() {
           </Navbar.Collapse>
         </Container>
       </Navbar> */}
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-          <a class="navbar-brand" href="/">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div className="container">
+          <a className="navbar-brand" href="/">
             <h2>LIBRARY</h2>
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarColor01"
@@ -108,45 +112,48 @@ export default function Navigation() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="/">
+          <div className="collapse navbar-collapse" id="navbarColor01">
+            <ul className="navbar-nav me-auto">
+              <li className="nav-item">
+                <a className="nav-link active" href="/">
                   Home
-                  <span class="visually-hidden">(current)</span>
+                  <span className="visually-hidden">(current)</span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
                   Features
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a class="nav-link" href="#">
                   Pricing
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
                   About
                 </a>
               </li>
             </ul>
-            <form class="d-flex">
+            <form
+              className="search-box d-flex"
+              onSubmit={(event) => search(event)}
+            >
               <input
-                class="form-control me-sm-2"
+                className="form-control me-sm-2"
                 type="search"
-                placeholder="Search"
+                placeholder="제목을 입력하세요"
               />
-              <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+              <button className="btn btn-secondary my-2 my-sm-0" type="submit">
                 Search
               </button>
             </form>
             <ul className="navbar-nav ml-auto">
-              <li class="nav-item" onClick={goToLogin}>
-                <a class="nav-link" href="#">
+              <li className="nav-item" onClick={goToLogin}>
+                <a className="nav-link" href="#">
                   <FontAwesomeIcon icon={faUser} />
                   {""} login
                 </a>

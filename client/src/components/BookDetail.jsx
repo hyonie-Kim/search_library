@@ -52,9 +52,10 @@ export default function BookDetail() {
 
   return (
     <div>
-      {isbn}
-
+      {/* {isbn} */}
+      <img src={itemDetail !== undefined && itemDetail[0].cover} />
       <h1>{itemDetail !== undefined && itemDetail[0].title}</h1>
+      <p>{itemDetail !== undefined && itemDetail[0].description}</p>
     </div>
   );
 }

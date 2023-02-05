@@ -8,8 +8,8 @@ import { Container, input } from "react-bootstrap";
 export default function Login({ setAuthenticate }) {
   const navigate = useNavigate();
 
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+  const onFinish = (event) => {
+    console.log("Received values of form: ", event);
 
     setAuthenticate(true);
     navigate("/");
@@ -86,7 +86,7 @@ export default function Login({ setAuthenticate }) {
     //   </Form>
     // </div>
     <Container>
-      <form className="loginForm">
+      <form className="loginForm" onSubmit={(event) => onFinish(event)}>
         <fieldset>
           <legend>로그인</legend>
           <div class="form-group">

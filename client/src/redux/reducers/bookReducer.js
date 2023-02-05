@@ -3,6 +3,7 @@ let initialState = {
   itemNewSpecial: {},
   bestSeller: {},
   itemDetail: {},
+  bookSearch: {},
   loading: true,
 };
 
@@ -18,6 +19,7 @@ function bookReducer(state = initialState, action) {
         itemNewSpecial: payload.itemNewSpecial,
         bestSeller: payload.bestSeller,
         itemDetail: payload.itemDetail,
+        bookSearch: payload.bookSearch,
         loading: false,
       };
     case "GET_BOOKS_FAILURE":
