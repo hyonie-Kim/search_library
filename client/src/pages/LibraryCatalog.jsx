@@ -6,6 +6,12 @@ import BookCard from "../components/BookCard";
 import { Col, Container, Row } from "react-bootstrap";
 import BooksSlide from "../components/BooksSlide";
 import ClipLoader from "react-spinners/ClipLoader";
+import BeatLoader from "react-spinners/BeatLoader";
+import { css } from "@emotion/react";
+
+const override = css`
+  display: block;
+`;
 
 export default function LibraryCatalog() {
   const dispatch = useDispatch();
@@ -21,12 +27,23 @@ export default function LibraryCatalog() {
   // 로딩이 false이면 데이터를 보여준다
   if (loading) {
     return (
-      <ClipLoader
-        color="green"
-        loading={loading}
-        size={150}
-        aria-label="Loading Spinner"
-      />
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <BeatLoader
+          color="green"
+          loading={loading}
+          size={15}
+          margin={2}
+          css={override}
+          aria-label="Loading Spinner"
+        />
+      </div>
     );
   }
   return (
