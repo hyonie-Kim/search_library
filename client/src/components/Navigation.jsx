@@ -35,6 +35,7 @@ export default function Navigation() {
     e.preventDefault();
     dispatch(bookAction.getBooks(keyword));
     navigate(`/search/${text}`);
+    setText("");
   };
 
   useEffect(() => {

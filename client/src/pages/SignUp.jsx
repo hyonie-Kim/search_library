@@ -160,8 +160,7 @@ export default function SignUp({ setAuthenticate }) {
                   onChange={nameHandler}
                   value={name}
                   type="text"
-                  placeholder="Readonly input here..."
-                  readonly=""
+                  placeholder="name"
                 />
               </fieldset>
               <label
