@@ -8,6 +8,7 @@ import server from "../redux/server";
 import axios from "axios";
 import Title from "antd/es/skeleton/Title";
 import ClipLoader from "react-spinners/ClipLoader";
+import { Container } from "react-bootstrap";
 
 export default function BookDetail() {
   const dispatch = useDispatch();
@@ -52,10 +53,13 @@ export default function BookDetail() {
 
   return (
     <div>
-      {/* {isbn} */}
-      <img src={itemDetail !== undefined && itemDetail[0].cover} />
-      <h1>{itemDetail !== undefined && itemDetail[0].title}</h1>
-      <p>{itemDetail !== undefined && itemDetail[0].description}</p>
+      <Container>
+        {/* {isbn} */}
+        <h1>{itemDetail !== undefined && itemDetail[0].title}</h1>
+        <img src={itemDetail !== undefined && itemDetail[0].cover} />
+
+        <p>{itemDetail !== undefined && itemDetail[0].description}</p>
+      </Container>
     </div>
   );
 }
