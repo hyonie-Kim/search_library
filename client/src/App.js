@@ -12,6 +12,7 @@ import { useCallback, useEffect, useState } from "react";
 import Books from "./pages/Books";
 import SignUp from "./pages/SignUp";
 import PrivateRoute from "./route/PrivateRoute";
+import NotFound from "./pages/NotFound";
 
 // 프론트에서 서버에 데이터를 요청 하려면 서버 주소 와 HTTP 메소드만 있으면됨
 
@@ -27,8 +28,12 @@ function App() {
     <div className="App">
       <Navigation />
       <Routes>
-        <Route path="/" element={<LibraryCatalog />} />
-        <Route path="/books" element={<Books />} />
+        <Route
+          path="/"
+          element={<LibraryCatalog />}
+          errorElement={<NotFound />}
+        />
+        <Route path="/search/:keyword" element={<Books />} />
         <Route
           path="/login"
           element={<Login setAuthenticate={setAuthenticate} />}

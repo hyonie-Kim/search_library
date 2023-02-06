@@ -8,6 +8,7 @@ import server from "../redux/server";
 import axios from "axios";
 import Title from "antd/es/skeleton/Title";
 import ClipLoader from "react-spinners/ClipLoader";
+import BeatLoader from "react-spinners/BeatLoader";
 import { Container } from "react-bootstrap";
 
 export default function BookDetail() {
@@ -41,24 +42,53 @@ export default function BookDetail() {
   }, []);
   if (loading) {
     return (
-      <ClipLoader
-        color="green"
-        loading={loading}
-        size={150}
-        aria-label="Loading Spinner"
-      />
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <BeatLoader
+          color="green"
+          loading={loading}
+          size={15}
+          margin={2}
+          aria-label="Loading Spinner"
+        />
+      </div>
     );
   }
   console.log("ddddddddddddd", itemDetail);
 
   return (
     <div>
-      <Container>
-        {/* {isbn} */}
-        <h1>{itemDetail !== undefined && itemDetail[0].title}</h1>
-        <img src={itemDetail !== undefined && itemDetail[0].cover} />
+      <Container style={{ width: "60%" }}>
+        <div className="detailHeader">
+          <h1>{itemDetail !== undefined && itemDetail[0].title}</h1>
+        </div>
+        <div className="detailWrap">
+          <div className="detailSidemenu">
+            <img src={itemDetail !== undefined && itemDetail[0].cover} />
+          </div>
+          <div className="detailContent">
+            <div> {itemDetail !== undefined && itemDetail[0].categoryName}</div>
+            <br />
+            <div>저자: {itemDetail !== undefined && itemDetail[0].author}</div>
+            <div>
+              발행일: {itemDetail !== undefined && itemDetail[0].pubDate}
+            </div>
+            <div>
+              정가: {itemDetail !== undefined && itemDetail[0].priceStandard}원
+            </div>
+          </div>
+        </div>
 
-        <p>{itemDetail !== undefined && itemDetail[0].description}</p>
+        <div className="detailFooter">
+          {" "}
+          <p>{itemDetail !== undefined && itemDetail[0].description}</p>
+        </div>
       </Container>
     </div>
   );

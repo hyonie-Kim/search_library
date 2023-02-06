@@ -1,6 +1,9 @@
 import React from "react";
+import { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useDispatch, useSelector } from "react-redux";
+import { bookAction } from "../redux/actions/bookAction";
 import BookCard from "./BookCard";
 const responsive = {
   superLargeDesktop: {
@@ -23,23 +26,20 @@ const responsive = {
 };
 
 export default function BooksSlide({ book }) {
-  console.log("슬라이드 아이템!", book);
+  // const dispatch = useDispatch();
+  // const { bookSearch } = useSelector((state) => state.book);
+  // // console.log("슬라이드 아이템!", book);
+
+  // useEffect(() => {
+  //   bookAction.getBooks();
+  // }, []);
+
   return (
     <div className="slideContainer">
       {/* <Carousel responsive={responsive}> */}
       {book.item.map((result, index) => (
         <BookCard result={result} key={index} />
       ))}
-
-      {/* <BookCard />
-        <BookCard />
-        <BookCard />
-        <BookCard />
-        <BookCard /> */}
-      {/* <div>Item 2</div>
-        <div>Item 3</div>
-        <div>Item 4</div> */}
-      {/* </Carousel> */}
     </div>
   );
 }

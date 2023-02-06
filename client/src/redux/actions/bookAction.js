@@ -8,6 +8,7 @@ function getBooks(isbn) {
   });
 
   return async (dispatch) => {
+    console.log("액셔냉겻????", isbn);
     try {
       dispatch({ type: "GET_BOOKS_REQUEST" });
       const itemListApi = api.get(
@@ -25,8 +26,7 @@ function getBooks(isbn) {
         `ItemLookUp.aspx?ttbkey=${API_KEY}&itemIdType=ISBN&Cover=Big&ItemId=${isbn}&output=js&Version=20131101`
       );
       const bookSearchApi = api.get(
-        `ItemSearch.aspx?ttbkey=${API_KEY}&Query=aladdin&QueryType=Title&MaxResults=10&start=1&SearchTarget=B
-        ook&output=js&Version=20131101&OptResult=Toc,Story,fulldescription`
+        `ItemSearch.aspx?ttbkey=${API_KEY}&Query=${isbn}&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=js&Version=20131101&OptResult=Toc,Story,fulldescription`
       );
 
       let [itemList, itemNewSpecial, bestSeller, itemDetail, bookSearch] =
@@ -41,6 +41,7 @@ function getBooks(isbn) {
       // console.log(itemNewSpecial);
       // console.log(bestSeller);
       console.log("itemDetailitemDetail", itemDetail);
+      console.log("bookSearchApibookSearchApi", bookSearch);
       dispatch({
         type: "GET_BOOKS_SUCCESS",
         payload: {

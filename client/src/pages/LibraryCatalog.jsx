@@ -5,9 +5,9 @@ import { useEffect } from "react";
 import BookCard from "../components/BookCard";
 import { Col, Container, Row } from "react-bootstrap";
 import BooksSlide from "../components/BooksSlide";
-import ClipLoader from "react-spinners/ClipLoader";
 import BeatLoader from "react-spinners/BeatLoader";
 import { css } from "@emotion/react";
+import { BsFillBookmarkFill } from "react-icons/bs";
 
 const override = css`
   display: block;
@@ -53,12 +53,18 @@ export default function LibraryCatalog() {
 
         {/* <h1>신간 리스트</h1>
       <BooksSlide book={itemList} /> */}
-        <Row>
-          <h2>베스트 셀러</h2>
+        <Row style={{ marginBottom: "50px" }}>
+          <h2 className="catalogTitle">
+            <BsFillBookmarkFill />
+            베스트 셀러
+          </h2>
           <BooksSlide book={itemNewSpecial} />
         </Row>
         <Row>
-          <h2>주목할 만한 리스트</h2>
+          <h2 className="catalogTitle">
+            <BsFillBookmarkFill />
+            주목할 만한 리스트
+          </h2>
           <BooksSlide book={bestSeller} />
         </Row>
       </Container>

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { GiSpellBook } from "react-icons/gi";
+import { BsSearch } from "react-icons/bs";
 import {
   Navbar,
   Container,
@@ -13,95 +15,44 @@ import {
   input,
 } from "react-bootstrap";
 
-import { Input } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { bookAction } from "../redux/actions/bookAction";
 
 export default function Navigation() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { bookSearch } = useSelector((state) => state.book);
+  const { keyword } = useParams();
+  const [text, setText] = useState("");
+
   const goToLogin = () => {
     navigate("/login");
   };
-  const { Search } = Input;
 
-  const searchOnkeyPress = (value) => {
-    // if (e.key === "Enter") {
-    //   // 입력한 검색어를 읽어와서 URL을 바꿔준다.
-    //   console.log("key press", e.key);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(bookAction.getBooks(keyword));
+    navigate(`/search/${text}`);
+  };
 
-    // }
-    navigate(`/?p=${value}`);
-  };
-  const search = (event) => {
-    event.preventDefault();
-    console.log("search issue");
-  };
+  useEffect(() => {
+    setText(keyword || "");
+  }, [keyword]);
+
   return (
     <>
-      {/* <Navbar bg="light" expand="lg">
-        <Container fluid>
-          <Navbar.Brand href="#">
-            <img
-              width={50}
-              src="https://sesac.seoul.kr/static/common/images/www/temp/thumbnail.png"
-            />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/books">Books</Nav.Link>
-            </Nav>
-            <Nav>
-              <Nav.Link onClick={goToLogin}>
-                <FontAwesomeIcon icon={faUser} /> {""} 로그인
-              </Nav.Link> */}
-
-      {/* ddddddddddddddddddddddddddddddddddddddddd */}
-      {/* <NavDropdown
-                title={
-                  <span>
-                    <FontAwesomeIcon icon={faUser} />
-                    {""} 로그인
-                  </span>
-                }
-                id="navbarScrollingDropdown"
-              >
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
-              </NavDropdown> */}
-      {/* </Nav> */}
-
-      {/* <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form> */}
-      {/* <Search
-              placeholder="input search text"
-              onSearch={(value) => searchOnkeyPress(value)}
-              style={{ width: 200 }}
-            />
-          </Navbar.Collapse>
-        </Container>
-      </Navbar> */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav
+        className="navbar navbar-expand-lg navbar-dark bg-primary"
+        style={{ marginBottom: "10px" }}
+      >
         <div className="container">
           <a className="navbar-brand" href="/">
-            <h2>LIBRARY</h2>
+            <h2>
+              <GiSpellBook />
+              {""}LIBRARY
+            </h2>
           </a>
           <button
             className="navbar-toggler"
@@ -123,11 +74,11 @@ export default function Navigation() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Features
+                <a className="nav-link" href="/">
+                  books
                 </a>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a class="nav-link" href="#">
                   Pricing
                 </a>
@@ -136,19 +87,27 @@ export default function Navigation() {
                 <a className="nav-link" href="#">
                   About
                 </a>
-              </li>
+              </li> */}
             </ul>
-            <form
-              className="search-box d-flex"
-              onSubmit={(event) => search(event)}
-            >
-              <input
+            {/* search기능 */}
+            <form className="search-box d-flex" onSubmit={handleSubmit}>
+              {/* <input
                 className="form-control me-sm-2"
                 type="search"
                 placeholder="제목을 입력하세요"
               />
               <button className="btn btn-secondary my-2 my-sm-0" type="submit">
                 Search
+              </button> */}
+              <input
+                type="text"
+                placeholder="Search.."
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                style={{ outline: "none", border: "none" }}
+              />
+              <button type="submit" style={{ border: "none" }}>
+                <BsSearch />
               </button>
             </form>
             <ul className="navbar-nav ml-auto">
