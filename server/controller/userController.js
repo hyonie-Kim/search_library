@@ -44,7 +44,7 @@ exports.get_aladin = async (req, res) => {
     itemList: itemList.data,
     itemNewSpecial: itemNewSpecial.data,
     bestSeller: bestSeller.data,
-    itemDetail: itemDetail.data,
+    itemDetail: itemDetail.data.item,
     bookSearch: bookSearch.data,
   };
   res.send(result);
