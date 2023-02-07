@@ -65,17 +65,17 @@ export default function SignUp({ setAuthenticate }) {
         <form className="signup-form" name="normal_signup">
           <fieldset>
             <legend>회원가입</legend>
-            <div class="form-group">
+            <div className="form-group">
               <fieldset>
                 <label
-                  class="form-label mt-4"
-                  for="readOnlyInput"
+                  className="form-label mt-4"
+                  htmlFor="readOnlyInput"
                   name="username"
                 >
                   이름
                 </label>
                 <input
-                  class="form-control"
+                  className="form-control"
                   id="readOnlyInput"
                   name="username"
                   onChange={nameHandler}
@@ -85,8 +85,8 @@ export default function SignUp({ setAuthenticate }) {
                 />
               </fieldset>
               <label
-                for="exampleInputEmail1"
-                class="form-label mt-4"
+                htmlFor="exampleInputEmail1"
+                className="form-label mt-4"
                 name="email"
               >
                 이메일
@@ -95,19 +95,19 @@ export default function SignUp({ setAuthenticate }) {
                 type="email"
                 value={email}
                 onChange={emailHandler}
-                class="form-control"
+                className="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
               />
-              <small id="emailHelp" class="form-text text-muted">
+              <small id="emailHelp" className="form-text text-muted">
                 We'll never share your email with anyone else.
               </small>
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label
-                for="exampleInputPassword1"
-                class="form-label mt-4"
+                htmlFor="exampleInputPassword1"
+                className="form-label mt-4"
                 name="password"
               >
                 비밀번호
@@ -116,7 +116,7 @@ export default function SignUp({ setAuthenticate }) {
                 value={password}
                 onChange={passwordHandler}
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="exampleInputPassword1"
                 placeholder="Password"
               />
@@ -124,7 +124,7 @@ export default function SignUp({ setAuthenticate }) {
             <br />
             <button
               type="submit"
-              class="btn btn-primary"
+              className="btn btn-primary"
               onClick={() => signup()}
             >
               회원가입

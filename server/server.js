@@ -20,11 +20,11 @@ app.use(express.urlencoded({ extended: true }));
 // cors 허용
 app.use(cors());
 // app.use(cors({ origin: true, credentials: true }));
-let corsOptions = {
-  origin: "http://localhost:3000",
-  credentials: true,
-};
-app.use(cors(corsOptions));
+// let corsOptions = {
+//   origin: process.env.REACT_APP_LOCAL_HOST,
+//   credentials: true,
+// };
+// app.use(cors(corsOptions));
 
 const router = require("./routes");
 app.use("/", router);

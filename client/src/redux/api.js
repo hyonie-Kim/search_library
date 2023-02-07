@@ -2,7 +2,8 @@ import axios from "axios";
 
 const api = axios.create({
   // baseURL: "http://www.aladin.co.kr/ttb/api",
-  baseURL: "/api",
+  // baseURL: "/api",
+  baseURL: process.env.REACT_APP_ALADIN_HOST,
   //   timeout: 1000,
   headers: { "Content-type": "application/json" },
 });

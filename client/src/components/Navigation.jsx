@@ -3,17 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { GiSpellBook } from "react-icons/gi";
 import { BsSearch } from "react-icons/bs";
-import {
-  Navbar,
-  Container,
-  Form,
-  form,
-  Button,
-  Nav,
-  NavDropdown,
-  FormControl,
-  input,
-} from "react-bootstrap";
 
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";

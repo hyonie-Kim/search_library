@@ -20,34 +20,34 @@ export default function Login({ setAuthenticate }) {
       <form className="loginForm" onSubmit={(event) => onFinish(event)}>
         <fieldset>
           <legend>로그인</legend>
-          <div class="form-group">
-            <label for="exampleInputEmail1" class="form-label mt-4">
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1" className="form-label mt-4">
               이메일
             </label>
             <input
               type="email"
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
             />
-            <small id="emailHelp" class="form-text text-muted">
+            <small id="emailHelp" className="form-text text-muted">
               We'll never share your email with anyone else.
             </small>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1" class="form-label mt-4">
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1" className="form-label mt-4">
               비밀번호
             </label>
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
             />
           </div>
           <br />
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             로그인
           </button>
           <br />
