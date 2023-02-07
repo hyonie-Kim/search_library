@@ -8,7 +8,7 @@ function getBooks(isbn) {
   });
 
   return async (dispatch) => {
-    console.log("액셔냉겻????", isbn);
+    console.log("dd", isbn);
     try {
       dispatch({ type: "GET_BOOKS_REQUEST" });
       const itemListApi = api.get(
