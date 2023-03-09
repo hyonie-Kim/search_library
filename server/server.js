@@ -65,5 +65,5 @@ app.get("/kkk", async (req, res) => {
 // });
 
 app.listen(port, () => {
-  console.log(`백엔드 서버 작동중: http://localhost:${port}`);
+  console.log(`백엔드 서버 작동중:http://${process.env.MYSQL_HOST}:${port}`);
 });
