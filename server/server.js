@@ -2,7 +2,13 @@ const express = require("express");
 const path = require("path");
 const axios = require("axios");
 const dotenv = require("dotenv");
-dotenv.config();
+
+if (process.env.NODE_ENV == "production") {
+  dotenv.config({ path: path.join(__dirname, ".env.production") });
+} else {
+  dotenv.config();
+}
+console.log(process.env.MYSQL_HOST);
 const port = process.env.PORT;
 const cors = require("cors");
 

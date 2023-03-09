@@ -3,7 +3,7 @@ const User = (Sequelize, DataTypes) => {
     "user",
     {
       id: {
-        type: DataTypes.STRING(10),
+        type: DataTypes.STRING(50),
         allowNull: false,
         primaryKey: true,
       },
